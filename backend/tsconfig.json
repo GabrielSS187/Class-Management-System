@@ -8,8 +8,8 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
-    "outDir": "dist",
-    "rootDir": "./src"
+    "outDir": "./dist",
+    "rootDir": "."
   },
   "lib": ["es2021"]
 }
