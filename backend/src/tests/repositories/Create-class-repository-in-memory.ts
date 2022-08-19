@@ -1,9 +1,9 @@
 import { 
     ICreateClassModel,
     ICreateClassModelData 
-  } from "../models/ICreateClassModel";
+  } from "../../models/ICreateClassModel";
 
-  import { generateId } from "../utils/generateId";
+  import { generateId } from "../../utils/generateId";
 
   export class CreateClassRepositoryInMemory 
   implements ICreateClassModel {
