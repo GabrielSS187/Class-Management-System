@@ -17,7 +17,7 @@ import {
     private readonly createClassModal: ICreateClassModel
   ){};
 
-  async createClass ( request: ICreateClassCaseRequest ) {
+  public async createClass ( request: ICreateClassCaseRequest ) {
     const { nameClass, responsible } = request;
 
     const someClassFound = 

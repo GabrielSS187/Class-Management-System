@@ -2,7 +2,7 @@ import { CreateClassCase } from "./CreateClassCase";
 
 import {
    CreateClassRepositoryInMemory 
-} from "../../tests/repositories/Create-class-repository-in-memory";
+} from "../../tests/repositories/Class-repositories/Create-class-repository-in-memory";
 
 import { CustomError } from "../../errors/CustomError";
 import { 
@@ -24,10 +24,10 @@ import {
   };
  };
 
- describe("Test CreateClassCase", () => {
+ describe("Test CreateClassCase.", () => {
 
   //* Test - 1
-  it("Should create class without error.", async () => {
+  it("should create class without error.", async () => {
     const { 
       sut, 
       createClassRepositoryInMemory 
@@ -76,7 +76,7 @@ import {
   });
 
   //* Test - 3
-  it("Should not be able to create an existing class.", async () => {
+  it("should not be able to create an existing class.", async () => {
     const { 
       sut, 
       createClassRepositoryInMemory 

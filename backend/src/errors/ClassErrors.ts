@@ -1,5 +1,7 @@
 import { CustomError } from "./CustomError";
 
+//* ========================================================
+//* CreateClassCase
 export class VerifyIfContainRequestValues 
 extends CustomError {
   constructor () {
@@ -18,3 +20,28 @@ export class VerifyIfExistClass extends CustomError {
       );
   };
 };
+
+//* ======================================================
+//* GetAllsClassCase
+export class VerifyIfNotClassList extends CustomError {
+  constructor () {
+    super(
+      `Empty class list!.`, 
+       404
+      );
+  };
+};
+//* =======================================================
+
+//* =======================================================
+//* FindClassCase
+//* DeleteClassCase
+export class VerifyIfNotClass extends CustomError {
+  constructor () {
+    super(
+      `Class not found!.`, 
+       404
+      );
+  };
+};
+//* =======================================================
