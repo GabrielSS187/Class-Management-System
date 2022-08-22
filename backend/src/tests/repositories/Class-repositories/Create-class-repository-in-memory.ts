@@ -1,7 +1,7 @@
 import { 
     ICreateClassModel,
     ICreateClassModelData 
-  } from "../../../models/ICreateClassModel";
+  } from "../../../models/ClassModels/ICreateClassModel";
 
   import { generateId } from "../../../utils/generateId";
 

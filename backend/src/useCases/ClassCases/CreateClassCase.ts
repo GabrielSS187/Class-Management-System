@@ -1,4 +1,4 @@
-import { ICreateClassModel } from "../../models/ICreateClassModel";
+import { ICreateClassModel } from "../../models/ClassModels/ICreateClassModel";
 
 import { 
   VerifyIfContainRequestValues,

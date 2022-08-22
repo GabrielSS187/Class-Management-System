@@ -1,10 +1,10 @@
-import { IGetAllsClassModel } from "../../models/IGetAllsClassModel";
+import { IGetAllsClassModel } from "../../models/ClassModels/IGetAllsClassModel";
 
 import { VerifyIfNotClassList } from "../../errors/ClassErrors";
 
 export class GetAllsClassCase {
   constructor (
-    private getAllsClassModel: IGetAllsClassModel
+    private readonly getAllsClassModel: IGetAllsClassModel
   ){};
 
   public async getAllsClass () {

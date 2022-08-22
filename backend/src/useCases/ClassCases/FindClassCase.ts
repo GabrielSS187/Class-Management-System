@@ -1,4 +1,4 @@
-import { IFindClassModel } from "../../models/IFindClassModel";
+import { IFindClassModel } from "../../models/ClassModels/IFindClassModel";
 
 import { INameClassRequest } from "./ClassCasesTypes";
 
@@ -6,7 +6,7 @@ import { VerifyIfNotClass } from "../../errors/ClassErrors";
 
 export class  FindClassCase {
   constructor (
-    private findClassModel: IFindClassModel
+    private readonly findClassModel: IFindClassModel
   ){}
 
  public async findClass ({ nameClass }: INameClassRequest) {

@@ -2,7 +2,7 @@ import {
   IFindClassModel,
   IFindClassModelData,
   IClassModelData
- } from "../../../models/IFindClassModel";
+ } from "../../../models/ClassModels/IFindClassModel";
 
  export class FindClassRepositoryInMemory 
  implements IFindClassModel {

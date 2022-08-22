@@ -1,4 +1,4 @@
-import { IDeleteClassModel } from "../../models/IDeleteClassModel";
+import { IDeleteClassModel } from "../../models/ClassModels/IDeleteClassModel";
 
 import { INameClassRequest } from "./ClassCasesTypes";
 
@@ -6,7 +6,7 @@ import { VerifyIfNotClass } from "../../errors/ClassErrors";
 
 export class DeleteClassCase {
   constructor (
-    private deleteClassModel: IDeleteClassModel
+    private readonly deleteClassModel: IDeleteClassModel
   ){};
 
   public async deleteClass ({ nameClass }: INameClassRequest) {

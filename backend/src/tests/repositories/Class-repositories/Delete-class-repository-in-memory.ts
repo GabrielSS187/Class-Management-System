@@ -2,7 +2,7 @@ import {
   IDeleteClassModel,
   IDeleteClassModelData,
   IClassModelData
- } from "../../../models/IDeleteClassModel";
+ } from "../../../models/ClassModels/IDeleteClassModel";
 
  export class DeleteClassRepositoryInMemory
  implements IDeleteClassModel {
