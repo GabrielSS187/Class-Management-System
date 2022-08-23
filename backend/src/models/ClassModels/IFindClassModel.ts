@@ -1,6 +1,14 @@
+export interface IStudentsListModelData {
+  idStudent: string;
+  firstName: string;
+  lastName: string;
+  participation: string;
+};
+
 export interface IClassModelData {
   nameClass: string;
   responsible: string;
+  studentsList: IStudentsListModelData[];
 };
 
 export interface IFindClassModelData {

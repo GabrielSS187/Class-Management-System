@@ -1,4 +1,5 @@
 export interface ICreateClassModelData {
+  idClass: string;
   nameClass: string;
   responsible: string;
 };

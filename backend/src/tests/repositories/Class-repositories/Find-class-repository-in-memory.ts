@@ -6,7 +6,18 @@ import {
 
  export class FindClassRepositoryInMemory 
  implements IFindClassModel {
-  public classList: IClassModelData[] = [];
+  public classList: IClassModelData[] = [
+    {
+      nameClass: "Classe 1",
+      responsible: "Responsavel 1",
+      studentsList: [],
+    },
+    {
+      nameClass: "Classe 2",
+      responsible: "Responsavel 2",
+      studentsList: [],
+    }
+  ];
 
   public async find ({ nameClass }: IFindClassModelData) {
     const foundClass = 

@@ -15,7 +15,7 @@ extends CustomError {
 export class VerifyIfExistClass extends CustomError {
   constructor (public nameClass: string) {
     super(
-      `There is already a class with that name ( ${nameClass} )!.`, 
+      `There is already a class with that name: ( ${nameClass} )!.`, 
        409
       );
   };

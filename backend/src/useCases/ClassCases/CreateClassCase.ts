@@ -5,6 +5,8 @@ import {
   VerifyIfExistClass,
 } from "../../errors/ClassErrors";
 
+import { generateId } from "../../utils/generateId";
+
 import { ICreateClassCaseRequest } from "./ClassCasesTypes";
 
 import { 
@@ -35,10 +37,15 @@ import {
       throw new VerifyIfExistClass(nameClass);
     };
     //* ======================================================
-    
-    await this.createClassModal.create({
+
+    const idClass = generateId();
+
+    const data = {
+      idClass,
       nameClass,
       responsible
-    });
+    };
+    
+    await this.createClassModal.create(data);
   };
  };

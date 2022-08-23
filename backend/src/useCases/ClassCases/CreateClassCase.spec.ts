@@ -45,7 +45,7 @@ import {
     await sut.createClass(classData);
 
     expect(classList.length).toBeGreaterThan(0);
-    expect(classList[0]).toHaveProperty("id");
+    expect(classList[0]).toHaveProperty("idClass");
   });
 
   //* Test - 2

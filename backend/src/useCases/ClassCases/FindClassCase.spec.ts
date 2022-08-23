@@ -32,26 +32,14 @@ import { CustomError } from "../../errors/CustomError";
       findClassRepositoryInMemory
      } = sutFactory();
 
-     findClassRepositoryInMemory.addItemsClassList(
-      {
-        nameClass: "Classe 1",
-        responsible: "Responsavel 1",
-      }
-     );
-
-     findClassRepositoryInMemory.addItemsClassList(
-      {
-        nameClass: "Classe 2",
-        responsible: "Responsavel 2",
-      }
-     );
-
      const nameClass = "Classe 2";
      const foundClass = await sut.findClass({nameClass});
+
 
      expect(foundClass).toEqual({
       nameClass: "Classe 2",
       responsible: "Responsavel 2",
+      studentsList: [],
     });
 
    });
