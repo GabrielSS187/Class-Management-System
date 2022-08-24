@@ -16,7 +16,8 @@ import {
 
  import { 
   VerifyIfContainRequestValues,
-  VerifyIfNotExistClass
+  VerifyIfNotExistClass,
+  CheckThatClassDoesNotExceedLimit
  } from "../../errors/StudentsErrors";
 
  export class CreateStudentsCase {
@@ -29,8 +30,8 @@ import {
       { nameClass }: INameClassRequest
     ) {
 
-      const foundClass = 
-      await this.createStudentsModel.findClass({nameClass});
+    const foundClass = 
+    await this.createStudentsModel.findClass({nameClass});
 
     const { 
       lastName,
@@ -47,6 +48,10 @@ import {
       throw new VerifyIfContainRequestValues();
     };
 
+    if ( foundClass.studentsList.length >= 7 ) {
+      throw new CheckThatClassDoesNotExceedLimit();
+    };
+
     const idStudent = generateId();
 
     const data = {
@@ -57,5 +62,7 @@ import {
     };
 
     await this.createStudentsModel.create(data, {nameClass});
+
+    return 201;
   };
  };

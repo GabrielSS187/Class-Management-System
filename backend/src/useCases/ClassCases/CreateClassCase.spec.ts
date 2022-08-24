@@ -42,10 +42,11 @@ import {
       responsible: "Responsavel classe teste",
     };
 
-    await sut.createClass(classData);
+    const create = await sut.createClass(classData);
 
     expect(classList.length).toBeGreaterThan(0);
     expect(classList[0]).toHaveProperty("idClass");
+    expect(create).toBe(201);
   });
 
   //* Test - 2

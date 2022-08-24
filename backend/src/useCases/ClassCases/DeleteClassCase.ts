@@ -16,5 +16,7 @@ export class DeleteClassCase {
     if (  !foundClass ) throw new VerifyIfNotClass();
 
     await this.deleteClassModel.delete({nameClass});
+
+    return 200;
   };
 };

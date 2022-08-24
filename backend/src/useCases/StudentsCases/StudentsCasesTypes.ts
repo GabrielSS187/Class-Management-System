@@ -4,10 +4,17 @@ export interface ICreateStudentsRequest {
   participation: number;
 };
 
-export interface IStudentId {
-  id: string
+export interface IEditStudentsRequest {
+  firstName?: string;
+  lastName?: string;
+  participation?: number;
 };
 
 export interface INameClassRequest {
   nameClass: string;
+};
+
+export interface IStudentIdAndClassName {
+  nameClass: string;
+  idStudent: string;
 };

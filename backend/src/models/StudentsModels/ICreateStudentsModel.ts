@@ -5,6 +5,13 @@ export interface ICreateStudentsModelData {
   participation: number;
 };
 
+interface IOutputClassListData {
+  idClass: string;
+  nameClass: string;
+  responsible: string;
+  studentsList: ICreateStudentsModelData[];
+};
+
 export interface INameClassModelData {
   nameClass: string;
 };
@@ -16,5 +23,5 @@ export interface ICreateStudentsModel {
     ) => Promise<void>;
 
     findClass: (nameClass: INameClassModelData) 
-    => Promise<boolean>;
+    => Promise<IOutputClassListData | undefined>;
 };

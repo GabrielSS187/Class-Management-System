@@ -37,13 +37,14 @@ import { CustomError } from "../../errors/CustomError";
 
      //* Index da classe - 2
      const nameClass = "Classe 2";
-     await sut.deleteClass({nameClass});
+     const deleteClass = await sut.deleteClass({nameClass});
 
      expect(classList.length).toBe(2);
      expect(classList).toEqual([
       { nameClass: 'Classe 1', responsible: 'Responsavel 1' },
       { nameClass: 'Classe 3', responsible: 'Responsavel 3' }
     ]);
+    expect(deleteClass).toBe(200);
   });
 
    //* Test - 2

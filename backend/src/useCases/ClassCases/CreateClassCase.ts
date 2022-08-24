@@ -47,5 +47,7 @@ import {
     };
     
     await this.createClassModal.create(data);
+
+    return 201;
   };
  };
