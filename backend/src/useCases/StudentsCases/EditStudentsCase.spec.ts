@@ -9,7 +9,8 @@ import {
   VerifyIfNotExistClass,
   VerifyIfNotExistStudent
  } from "../../errors/StudentsErrors";
-import { CustomError } from "../../errors/CustomError";
+  
+ import { CustomError } from "../../errors/CustomError";
 
  const sutFactory = () => {
   const editStudentsRepositoryInMemory =
