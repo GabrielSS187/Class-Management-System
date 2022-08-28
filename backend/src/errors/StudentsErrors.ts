@@ -35,7 +35,7 @@ export class VerifyIfContainValuesInInput  extends CustomError {
   constructor () {
     super(
       `Check that the desired class name or student id is not missing!.`, 
-       404
+       406
       );
   };
 };
