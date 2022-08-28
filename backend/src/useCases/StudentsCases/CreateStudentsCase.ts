@@ -26,8 +26,8 @@ import {
   ){};
 
   public async createStudent ( 
-        request: ICreateStudentsRequest,
-      { nameClass }: INameClassRequest
+          request: ICreateStudentsRequest,
+        { nameClass }: INameClassRequest
     ) {
 
     const foundClass = 

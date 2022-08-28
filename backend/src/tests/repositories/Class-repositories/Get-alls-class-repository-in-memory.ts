@@ -1,7 +1,6 @@
 import { 
   IGetAllsClassModel,
   IClassModelData,
-  
  } from "../../../models/ClassModels/IGetAllsClassModel";
 
 export class GetAllClassRepositoryInMemory 

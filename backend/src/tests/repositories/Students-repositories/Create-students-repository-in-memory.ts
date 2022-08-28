@@ -50,4 +50,48 @@ implements ICreateStudentsModel {
 
     return foundClass;
   };
+
+  public populateStudentsList ( nameClass: string) {
+     const foundClass = this.classList
+      .find((item) => item.nameClass === nameClass);
+
+     foundClass!.studentsList.push(
+      {
+        idStudent: "1",
+        firstName: "estudante 1",
+        lastName: "estudante 1",
+        participation: 50,
+      },
+      {
+        idStudent: "2",
+      firstName: "estudante 2",
+      lastName: "estudante 2",
+      participation: 50,
+      },
+      {
+        idStudent: "3",
+        firstName: "estudante 3",
+        lastName: "estudante 3",
+        participation: 50,
+      },
+      {
+        idStudent: "4",
+        firstName: "estudante 4",
+        lastName: "estudante 4",
+        participation: 50,
+      },
+      {
+        idStudent: "5",
+        firstName: "estudante 5",
+        lastName: "estudante 5",
+        participation: 50,
+      },
+      {
+        idStudent: "6",
+        firstName: "estudante 6",
+        lastName: "estudante 6",
+        participation: 50,
+      }
+     );
+  }
 };
