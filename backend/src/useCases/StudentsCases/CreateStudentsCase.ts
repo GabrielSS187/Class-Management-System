@@ -33,7 +33,7 @@ import {
     const foundClass = 
     await this.createStudentsModel.findClass({nameClass});
 
-    const { 
+    let { 
       lastName,
       firstName,
       participation
@@ -51,6 +51,8 @@ import {
     if ( foundClass.studentsList.length >= 7 ) {
       throw new CheckThatClassDoesNotExceedLimit();
     };
+
+    if ( !participation ) request.participation = 1;
 
     const idStudent = generateId();
 
