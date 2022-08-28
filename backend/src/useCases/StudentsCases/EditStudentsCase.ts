@@ -15,7 +15,8 @@ import {
 import { 
   VerifyIfNotExistClass,
   VerifyIfNotExistStudent,
-  VerifyIfContainValuesInInput
+  VerifyIfContainValuesInInput,
+  CheckIfParticipationIsValid
  } from "../../errors/StudentsErrors";
 
 
@@ -55,6 +56,10 @@ import {
 
       if ( !classAndStudent.studentFound ){
         throw new VerifyIfNotExistStudent();
+      };
+
+      if ( participation! < 0 || participation! > 100 ) {
+        throw new CheckIfParticipationIsValid();
       };
 
       if ( !firstName ) {

@@ -17,7 +17,8 @@ import {
  import { 
   VerifyIfContainRequestValues,
   VerifyIfNotExistClass,
-  CheckThatClassDoesNotExceedLimit
+  CheckThatClassDoesNotExceedLimit,
+  CheckIfParticipationIsValid
  } from "../../errors/StudentsErrors";
 
  export class CreateStudentsCase {
@@ -47,12 +48,16 @@ import {
     if ( !validationResult.isValid ) {
       throw new VerifyIfContainRequestValues();
     };
+    
+    if ( !participation ) request.participation = 1;
+
+    if ( participation < 0 || participation > 100 ) {
+      throw new CheckIfParticipationIsValid();
+    };
 
     if ( foundClass.studentsList.length >= 7 ) {
       throw new CheckThatClassDoesNotExceedLimit();
     };
-
-    if ( !participation ) request.participation = 1;
 
     const idStudent = generateId();
 

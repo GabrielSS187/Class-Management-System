@@ -5,6 +5,7 @@ import {
  import { EditStudentsCase } from "./EditStudentsCase";
 
  import { 
+   CheckIfParticipationIsValid,
   VerifyIfContainValuesInInput,
   VerifyIfNotExistClass,
   VerifyIfNotExistStudent
@@ -236,4 +237,60 @@ import {
      expect(edit).toBe(200);
   });
   
+  //* Test - 6
+  it("should throw an error if the stake value is less than 0.", 
+  async () => {
+    expect.assertions(2);
+
+  const { 
+    sut,
+    editStudentsRepositoryInMemory
+    } = sutFactory();
+
+    const nameClass = "Classe 2";
+    const idStudent = "2";
+
+    const editStudent = {
+    participation: -1,
+    };
+
+    try {
+    await sut.editStudent(editStudent , {nameClass, idStudent});
+    } catch (error) {
+    if ( error instanceof CustomError ) {
+        expect(error.message)
+        .toMatch(new CheckIfParticipationIsValid().message);
+        expect(error.statusCode).toBe(406);
+      };
+    };
+  });
+
+  //* Test - 7
+  it("should throw an error if the stake value is greater than 100.", 
+  async () => {
+    expect.assertions(2);
+
+  const { 
+    sut,
+    editStudentsRepositoryInMemory
+    } = sutFactory();
+
+    const nameClass = "Classe 2";
+    const idStudent = "2";
+
+    const editStudent = {
+    participation: 150,
+    };
+
+    try {
+    await sut.editStudent(editStudent , {nameClass, idStudent});
+    } catch (error) {
+    if ( error instanceof CustomError ) {
+        expect(error.message)
+        .toMatch(new CheckIfParticipationIsValid().message);
+        expect(error.statusCode).toBe(406);
+      };
+    };
+  });
+
  });

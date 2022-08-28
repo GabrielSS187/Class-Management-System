@@ -7,7 +7,8 @@ import {
  import { 
   VerifyIfNotExistClass,
   VerifyIfContainRequestValues,
-  CheckThatClassDoesNotExceedLimit
+  CheckThatClassDoesNotExceedLimit,
+  CheckIfParticipationIsValid
  } from "../../errors/StudentsErrors";
 import { CustomError } from "../../errors/CustomError";
 
@@ -169,6 +170,74 @@ import { CustomError } from "../../errors/CustomError";
     };
     
     expect(classFound?.studentsList.length).toBe(7);
+  });
+
+  //* Test - 5
+  it("should throw an error if the stake value is less than 0.", 
+  async () => {
+    expect.assertions(3);
+
+    const {
+      sut,
+      createStudentsRepositoryInMemory
+    } = sutFactory();
+
+    const nameClass = "Classe 2";
+
+    const classFound = await
+    createStudentsRepositoryInMemory.findClass({nameClass});
+
+    const newStudent1 = {
+      firstName: "Gabriel",
+      lastName: "Silva",
+      participation: -1,
+    };
+
+    try {
+      await sut.createStudent(newStudent1 ,{nameClass});
+    } catch (error) {
+      if ( error instanceof CustomError ) {
+        expect(error.message)
+        .toEqual(new CheckIfParticipationIsValid().message);
+        expect(error.statusCode).toBe(406);
+      };
+    };
+    
+    expect(classFound?.studentsList.length).toBe(0);
+  });
+
+  //* Test - 6
+  it("should throw an error if the stake value is greater than 100.", 
+  async () => {
+    expect.assertions(3);
+
+    const {
+      sut,
+      createStudentsRepositoryInMemory
+    } = sutFactory();
+
+    const nameClass = "Classe 2";
+
+    const classFound = await
+    createStudentsRepositoryInMemory.findClass({nameClass});
+
+    const newStudent1 = {
+      firstName: "Gabriel",
+      lastName: "Silva",
+      participation: 150,
+    };
+
+    try {
+      await sut.createStudent(newStudent1 ,{nameClass});
+    } catch (error) {
+      if ( error instanceof CustomError ) {
+        expect(error.message)
+        .toEqual(new CheckIfParticipationIsValid().message);
+        expect(error.statusCode).toBe(406);
+      };
+    };
+    
+    expect(classFound?.studentsList.length).toBe(0);
   });
 
  });

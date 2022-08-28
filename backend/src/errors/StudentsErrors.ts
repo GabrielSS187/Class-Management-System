@@ -29,6 +29,14 @@ export class CheckThatClassDoesNotExceedLimit extends CustomError {
   };
 };
 
+export class CheckIfParticipationIsValid extends CustomError {
+  constructor(){
+    super("Participation cannot be less than 0 or greater than 100!.",
+      406
+    );
+  };
+};
+
 //* =============================================================
 //* EditStudentCase
 export class VerifyIfContainValuesInInput  extends CustomError {
