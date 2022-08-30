@@ -17,5 +17,5 @@ export interface IFindClassModelData {
 
 export interface IFindClassModel {
   find: ( data: IFindClassModelData ) => 
-  Promise<IClassModelData>;
+  Promise<IClassModelData | boolean>;
 };

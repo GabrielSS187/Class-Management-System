@@ -19,7 +19,7 @@ extends Database implements ICreateClassModel {
   }; 
 
   async findClass ( nameClass: string ) {
-    const foundClass = await Database
+    const [ foundClass ] = await Database
     .connectionDatabase(this.#TABLE_NAME)
     .where("name_class", nameClass);
 

@@ -1,2 +1,25 @@
+// Class =========================================================
+
 ### 
-GET http://localhost:3003/
+GET http://localhost:3003/class/all
+
+###
+GET http://localhost:3003/class/find-class/Classe 1
+
+###
+POST http://localhost:3003/class/create
+Content-Type: application/json
+
+{
+  "nameClass": "Classe 3",
+  "responsible": "Gabriel"
+}
+
+###
+DELETE http://localhost:3003/class/delete/Classe 3
+
+// ================================================================
+
+// Students =======================================================
+
+// ================================================================

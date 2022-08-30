@@ -13,7 +13,7 @@ export class DeleteClassCase {
     const foundClass = await
     this.deleteClassModel.findClass({nameClass});
 
-    if (  !foundClass ) throw new VerifyIfNotClass();
+    if ( !foundClass ) throw new VerifyIfNotClass();
 
     await this.deleteClassModel.delete({nameClass});
 

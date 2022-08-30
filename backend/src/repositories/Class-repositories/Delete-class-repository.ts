@@ -15,7 +15,7 @@ import {
   };
 
   public async findClass ({ nameClass }: IDeleteClassModelData) {
-    const foundClass = 
+    const [ foundClass ] = 
     await Database.connectionDatabase(this.#TABLE_NAME)
     .where("name_class", nameClass);
 
