@@ -74,7 +74,6 @@ import {
         request.participation = classAndStudent.studentFound.participation
       };
       
-      //* Segundo paramêtro e uma callback só mente para testes TDD
       await this.editStudentsModel.edit(request, classAndStudent);
 
       return 200;

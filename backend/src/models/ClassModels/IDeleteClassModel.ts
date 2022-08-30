@@ -10,6 +10,7 @@ export interface IDeleteClassModelData {
 export interface IDeleteClassModel {
   delete: ( data: IDeleteClassModelData ) =>
    Promise<void>;
+
    findClass: (data: IDeleteClassModelData) => 
-   Promise<IClassModelData>;
+   Promise<boolean>;
 };
