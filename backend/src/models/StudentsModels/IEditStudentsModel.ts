@@ -24,14 +24,16 @@ export interface IEditStudentsModelData {
 };
 
 export interface IStudentIdAndClassName {
-  nameClass: string;
-  idStudent: string;
+  nameClass?: string;
+  idStudent?: string;
 };
 
 export interface IEditStudentsModel {
   edit: ( 
     data: IEditStudentsModelData, 
-    callback?: IOutputFindClassAndStudent)
+    callbackFalse?: IOutputFindClassAndStudent,
+    callbackTrue?: IStudentIdAndClassName
+    )
   => Promise<void>;
   
   findClassAndStudent: (input: IStudentIdAndClassName) 

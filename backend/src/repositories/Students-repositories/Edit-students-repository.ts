@@ -14,7 +14,8 @@ extends Database implements IEditStudentsModel {
 
   public async edit (
      data: IEditStudentsModelData,
-     callback?: IOutputFindClassAndStudent) {
+     callbackFalse: any,
+     callback?: IStudentIdAndClassName) {
 
       await Database.
       connectionDatabase(this.#TABLE_STUDENTS_NAME)
@@ -22,7 +23,7 @@ extends Database implements IEditStudentsModel {
         first_name: data.firstName,
         last_name: data.lastName,
         participation: data.participation,
-      }).where("id_student", callback?.studentFound?.idStudent);
+      }).where("id_student", callback?.idStudent);
   };
 
   public async findClassAndStudent ({ nameClass, idStudent }

@@ -74,7 +74,7 @@ import {
         request.participation = classAndStudent.studentFound.participation
       };
       
-      await this.editStudentsModel.edit(request, classAndStudent);
+      await this.editStudentsModel.edit(request, classAndStudent, {nameClass, idStudent});
 
       return 200;
     };

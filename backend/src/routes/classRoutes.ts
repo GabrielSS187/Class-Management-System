@@ -21,6 +21,6 @@ import {
  const deleteClass = new DeleteClassController();
 
  classRoutes.get("/all", getAllClass.getAlls);
- classRoutes.get("/find-class/:nameClass", findClass.find);
+ classRoutes.get("/:nameClass", findClass.find);
  classRoutes.post("/create", createClass.create);
- classRoutes.delete("/delete/:nameClass", deleteClass.delete);
+ classRoutes.delete("/:nameClass", deleteClass.delete);

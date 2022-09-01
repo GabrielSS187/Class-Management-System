@@ -29,12 +29,12 @@ import {
     const validationResult: ValidateEmptyPropertiesOutput = 
       validateEmptyProperties(request);
 
-    const  foundClassAndStudent = 
-    await this.deleteStudentsModel.searchClassAndStudent(request);
-
     if (!validationResult.isValid) {
       throw new VerifyIfContainValuesInInput();
     };
+
+    const  foundClassAndStudent = 
+    await this.deleteStudentsModel.searchClassAndStudent(request);
 
     if (!foundClassAndStudent.foundClass) {
       throw new VerifyIfNotExistClass(request.nameClass);

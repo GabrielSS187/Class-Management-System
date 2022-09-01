@@ -55,7 +55,7 @@ import {
       throw new CheckIfParticipationIsValid();
     };
 
-    if ( foundClass.studentsList.length >= 7 ) {
+    if ( foundClass.studentsList?.length >= 7 ) {
       throw new CheckThatClassDoesNotExceedLimit();
     };
 
