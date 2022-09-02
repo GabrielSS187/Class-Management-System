@@ -1,13 +1,13 @@
-import { useContext } from "react";
+import { useContext, memo, useEffect } from "react";
 import { ContextGlobal } from "../../contexts/contextGlobal";
 
 import { Container } from "./styles";
 
 interface TableProps {
-  acitveModalStudentsForm: () => void;
-}
+  activeModalStudentsForm: (idStudent: string) => void;
+};
 
-export const Table = ({ acitveModalStudentsForm }: TableProps) => {
+export const Table = ({ activeModalStudentsForm }: TableProps) => {
   const { studentsList } = useContext(ContextGlobal);
 
   return (
@@ -27,8 +27,10 @@ export const Table = ({ acitveModalStudentsForm }: TableProps) => {
                 return (
                   <tr
                     key={student.id_student} 
-                    onClick={acitveModalStudentsForm}
-                  >
+                    onClick={
+                        () => activeModalStudentsForm(student.id_student)
+                      }
+                    >
                     <td>{student.first_name}</td>
                     <td>{student.last_name}</td>
                     <td>{student.participation}%</td>
@@ -41,3 +43,5 @@ export const Table = ({ acitveModalStudentsForm }: TableProps) => {
     </Container>
   );
 };
+
+export default memo(Table);

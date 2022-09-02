@@ -23,6 +23,9 @@ DELETE http://localhost:3333/class/Classe 3
 // Students =======================================================
 
 ###
+GET http://localhost:3333/students/445886e9-13de-4e7b-a600-cad5087b05de
+
+###
 POST http://localhost:3333/students/Classe 3
 Content-Type: application/json
 

@@ -1,4 +1,4 @@
-import { createContext, useState, ChangeEvent } from "react";
+import { createContext, useState, ChangeEvent, useEffect } from "react";
 import { useForm } from "../hooks/useForm";
 
 import { api } from "../services/api";
@@ -11,8 +11,6 @@ import {
 
 //* Types
 import { 
-  FormStudentsType, 
-  FormClassType, 
   ContextGlobalProps, 
   CreateContextType 
 } from "./typesContextGlobal";
@@ -24,16 +22,19 @@ export const ContextGlobalComponent = ({ children }: ContextGlobalProps) => {
   const [ isActiveModalForm, setIsActiveModalForm ] = 
   useState<boolean>(false);
 
+  const [ nameClass, setNameClass ] = useState<string>("");
+
   const [ classList, setClassList ] =
    useState<IOutputClass[] | []>([]);
+
+   const [ studentsList, setStudentsList ] = 
+   useState<IOutputStudents[] | []>([]);
 
   const [ foundClass, setFoundClass ] =
   useState<IOutputClassAndStudents | undefined>(undefined);
 
-  const [ studentsList, setStudentsList ] = 
-  useState<IOutputStudents[] | []>([]);
-
-  const [ nameClass, setNameClass ] = useState<string>("");
+  const [ foundStudent, setFoundStudent ] =
+  useState<IOutputStudents | undefined>(undefined);
 
   //* ==========================================================
   const getNameClass = (e: ChangeEvent<HTMLSelectElement>) => {
@@ -96,33 +97,62 @@ export const ContextGlobalComponent = ({ children }: ContextGlobalProps) => {
     participation: ""
   });
 
+  const formEditStudent = useForm({
+    firstName: "",
+    lastName: "",
+    participation: ""
+  });
+
+  async function refreshStudentsList (nameClass: string) {
+    const { data } = await api.get(`/class/${nameClass}`);
+    setStudentsList(data.studentsList);
+  };
+
   async function addStudents (
       e: ChangeEvent<HTMLFormElement>, 
       nameClass: string
     ) {
     e.preventDefault();
     try {
-      const [, {data} ] = await Promise.all([
+      const [,] = await Promise.all([
           await api.post(`/students/${nameClass}`, {
             ...formStudents.form,
             participation: Number(formStudents.form.participation)
           }), 
-          api.get(`/class/${nameClass}`)
-      ]);
+          refreshStudentsList(nameClass)
+        ]);
       formStudents.clearInputs();
-      setStudentsList(data.studentsList);
     } catch (error: any) {
       console.log(error?.message);
     };
   };
 
-  function editStudent ( idStudent: string ) {
-    //* Aguardando código
+  async function searchStudent (idStudent: string) {
+    const { data } = await api.get(`/students/${idStudent}`);
+    setFoundStudent(data);
   };
 
-async function deleteStudent ( nameClass: string, idStudent: string ) {
+  async function editStudent (
+      e: ChangeEvent<HTMLFormElement>, 
+      nameClass: string, 
+      idStudent: string 
+    ) {
+      e.preventDefault();
+      try {
+        await api.put(`/students/${nameClass}/${idStudent}`, 
+        formEditStudent.form)
+        setIsActiveModalForm(false);
+        await refreshStudentsList(nameClass);
+    } catch (error: any) {
+        console.log(error?.message);
+    };
+  };
+
+  async function deleteStudent ( nameClass: string, idStudent: string ) {
     try {
       await api.delete(`/students/${nameClass}/${idStudent}`);
+      setIsActiveModalForm(false);
+      await refreshStudentsList (nameClass);
     } catch (error: any) {
       console.log(error?.message);
     }
@@ -136,6 +166,11 @@ async function deleteStudent ( nameClass: string, idStudent: string ) {
     studentsList, 
     addStudents,
     formStudents,
+    searchStudent,
+    foundStudent,
+    editStudent,
+    formEditStudent,
+    deleteStudent,
     //*======================
     classList,
     addClass,

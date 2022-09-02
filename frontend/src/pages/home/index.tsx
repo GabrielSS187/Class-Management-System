@@ -26,23 +26,25 @@ export const Home = () => {
     isActiveModalForm, 
     setIsActiveModalForm, 
     nameClass,
-    foundClass 
+    foundClass,
+    searchStudent
   } = useContext(ContextGlobal);
 
   const [ selectedModalForm, setSelectedModalForm ] = 
   useState<string>("");
 
-  const acitveModalStudentsForm = () => {
+  const activeModalStudentsForm = (idStudent: string) => {
     setIsActiveModalForm(true);
     setSelectedModalForm("edit-student");
+    searchStudent(idStudent);
   };
 
-  const acitveModalAddClass = () => {
+  const activeModalAddClass = () => {
     setIsActiveModalForm(true);
     setSelectedModalForm("add-class");
   };
 
-  const acitveModalDeleteClass = () => {
+  const activeModalDeleteClass = () => {
     setIsActiveModalForm(true);
     setSelectedModalForm("delete-class");
   };
@@ -64,7 +66,7 @@ export const Home = () => {
       <SubHeader>
         <OptionsButtonsContainer>
           <button 
-            onClick={acitveModalAddClass} 
+            onClick={activeModalAddClass} 
             title="Adicionar uma nova classe">
             <Plus size={32} />
           </button>
@@ -89,13 +91,13 @@ export const Home = () => {
             <div className="info-class">
               <p>Class: <strong>{nameClass}</strong></p>
               <button 
-                onClick={acitveModalDeleteClass}
+                onClick={activeModalDeleteClass}
                 title="Excluir turma"
               ><Trash size={17} /></button>
               <p>Responsible: <strong>{foundClass?.responsible}</strong></p>
             </div>
             <Table 
-              acitveModalStudentsForm={acitveModalStudentsForm} 
+              activeModalStudentsForm={activeModalStudentsForm} 
             />
           </div>
           <div className="graphic">

@@ -1,24 +1,57 @@
+import { ChangeEvent, useContext } from "react";
+import { ContextGlobal } from "../../../contexts/contextGlobal";
+
 import { Container, FormContainer, ButtonsContainer } from "./styles";
 
 import { Trash } from "phosphor-react";
 
 export const EditStudentForm = () => {
+  const { 
+    foundStudent, 
+    formEditStudent, 
+    editStudent, 
+    nameClass, 
+    deleteStudent,
+   } = useContext(ContextGlobal);
+
   return (
     <Container>
       <h1>Edit or delete the student</h1>
-      <FormContainer>
+      <FormContainer onSubmit={
+           (e: ChangeEvent<HTMLFormElement>) => 
+           editStudent(e, nameClass, foundStudent?.id_student!)
+          }
+        >
         <section>
           <div>
             <label htmlFor="First-name">First name</label>
-            <input type="text" required placeholder="First name" id="First-name" />
+            <input type="text" 
+                id="First-name"
+                name="firstName"
+                value={formEditStudent.form.firstName}
+                onChange={formEditStudent.onChange}
+                placeholder={foundStudent?.first_name} 
+             />
           </div>
           <div>
             <label htmlFor="Last-name">Last name</label>
-            <input type="text" required placeholder="Last name" id="Last-name" />
+            <input type="text"
+                id="Last-name"
+                name="lastName"
+                value={formEditStudent.form.lastName}
+                onChange={formEditStudent.onChange}
+                placeholder={foundStudent?.last_name}
+             />
           </div>
           <div>
             <label htmlFor="Participation">Participation</label>
-            <input type="text" required placeholder="Participation" id="Participation" />
+            <input type="number" 
+                name="participation"
+                value={formEditStudent.form.participation}
+                onChange={formEditStudent.onChange}
+                id="Participation" 
+                placeholder={foundStudent?.participation}
+            />
           </div>
         </section>
         <ButtonsContainer>
@@ -26,7 +59,13 @@ export const EditStudentForm = () => {
             <button type="submit">Save</button>
           </div>
           <div>
-            <button type="button"><Trash size={18} /></button>
+            <button type="button"
+              onClick={() => 
+                deleteStudent(nameClass, foundStudent?.id_student!)
+              }
+            >
+              <Trash size={18} />
+            </button>
           </div>
         </ButtonsContainer>
       </FormContainer>
