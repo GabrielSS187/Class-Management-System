@@ -10,7 +10,6 @@ interface TableProps {
 export const Table = ({ acitveModalStudentsForm }: TableProps) => {
   const { studentsList } = useContext(ContextGlobal);
 
-  console.log("Table atualizou")
   return (
     <Container>
         <div className="table-wrapper">
@@ -27,12 +26,12 @@ export const Table = ({ acitveModalStudentsForm }: TableProps) => {
               {studentsList.map((student) => {
                 return (
                   <tr
-                    key={student.firstName} 
+                    key={student.id_student} 
                     onClick={acitveModalStudentsForm}
                   >
-                    <td>{student.firstName}</td>
-                    <td>{student.lastName}</td>
-                    <td>{student.participation}</td>
+                    <td>{student.first_name}</td>
+                    <td>{student.last_name}</td>
+                    <td>{student.participation}%</td>
                   </tr>
                 )
               })}

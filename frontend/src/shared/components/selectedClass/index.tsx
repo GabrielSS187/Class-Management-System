@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { ContextGlobal } from "../../contexts/contextGlobal";
 
 import { ArrowSquareLeft, ArrowSquareUp } from "phosphor-react";
@@ -6,18 +6,28 @@ import { ArrowSquareLeft, ArrowSquareUp } from "phosphor-react";
 import { ContainerMessageError } from "./styles";
 
 export const SelectedClass = () => {
-  const { classList } = useContext(ContextGlobal);
+  const { classList, getAllClass, getNameClass } = useContext(ContextGlobal);
+
+  useEffect(() => {
+    getAllClass();
+  }, []);
 
   return (
     <>
       {
         classList.length ?
         (
-          <select title="Escolha uma turma">
+          <select 
+            onChange={getNameClass}
+            title="Escolha uma turma"
+            >
             {classList.map(( class_list ) => {
               return (
-                <option key={class_list.name} value={class_list.name}>
-                  {class_list.name}
+                <option 
+                  key={class_list?.id_class} 
+                  value={class_list?.name_class}
+                >
+                  {class_list?.name_class}
                 </option>
               )
             })}

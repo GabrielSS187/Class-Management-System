@@ -22,8 +22,12 @@ import {
 } from "./styles";
 
 export const Home = () => {
-  const { isActiveModalForm, setIsActiveModalForm } = 
-  useContext(ContextGlobal);
+  const { 
+    isActiveModalForm, 
+    setIsActiveModalForm, 
+    nameClass,
+    foundClass 
+  } = useContext(ContextGlobal);
 
   const [ selectedModalForm, setSelectedModalForm ] = 
   useState<string>("");
@@ -47,7 +51,9 @@ export const Home = () => {
     switch (selectedModalForm) {
       case "edit-student": return <EditStudentForm />;
       case "add-class": return <AddClassForm />;
-      case "delete-class": return <DeleteClassModal nameClass="Labenu" />;
+      case "delete-class": return <DeleteClassModal 
+        nameClass={nameClass}
+       />;
       default: return null;
     };
   };
@@ -81,12 +87,12 @@ export const Home = () => {
         <Informations>
           <div className="table">
             <div className="info-class">
-              <p>Class: <strong>Labenu</strong></p>
+              <p>Class: <strong>{nameClass}</strong></p>
               <button 
                 onClick={acitveModalDeleteClass}
                 title="Excluir turma"
               ><Trash size={17} /></button>
-              <p>Responsible: <strong>Tesla</strong></p>
+              <p>Responsible: <strong>{foundClass?.responsible}</strong></p>
             </div>
             <Table 
               acitveModalStudentsForm={acitveModalStudentsForm} 

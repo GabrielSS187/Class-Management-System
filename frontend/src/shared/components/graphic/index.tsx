@@ -1,17 +1,21 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { ContextGlobal } from "../../contexts/contextGlobal";
 
 import { Chart } from "react-google-charts";
 
 export const Graphic = () => {
-  const { studentsList } = useContext(ContextGlobal);
+  const { studentsList, findClass, nameClass } = useContext(ContextGlobal);
+
+  useEffect(() => {
+    findClass(nameClass)
+  }, [nameClass]);
 
   //* Adaptando o array para o grafico.
   const adapterChatGraphic = (array: any) => {
     const arrayDestructuring = array.map((i: any) => 
-    [i?.firstName, i?.participation]);
+    [i?.first_name, i?.participation]);
 
-    return [["name", "Participation"], ...arrayDestructuring];
+    return [["first_name", "Participation"], ...arrayDestructuring];
   };
 
   const array = adapterChatGraphic(studentsList);

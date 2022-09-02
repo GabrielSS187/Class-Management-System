@@ -23,11 +23,11 @@ export const AddClassForm = () => {
         <div>
           <label htmlFor="class">class name</label>
           <input type="text" 
-            name="name"
-            value={formClass.form.name}
+            name="nameClass"
+            value={formClass.form.nameClass}
             onChange={formClass.onChange}
             placeholder="class name" id="class" 
-            required 
+            required
           />
         </div>
         <div>
