@@ -37,6 +37,12 @@ export class CheckIfParticipationIsValid extends CustomError {
   };
 };
 
+export class EmptyFieldError extends CustomError {
+  constructor(){
+    super("Preencha todos os campos!.", 406);
+  };
+};
+
 //* =============================================================
 //* EditStudentCase
 export class VerifyIfContainValuesInInput  extends CustomError {

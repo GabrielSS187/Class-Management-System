@@ -3,6 +3,7 @@ import { ICreateClassModel } from "../../models/ClassModels/ICreateClassModel";
 import { 
   VerifyIfContainRequestValues,
   VerifyIfExistClass,
+  EmptyFieldError,
 } from "../../errors/ClassErrors";
 
 import { generateId } from "../../utils/generateId";
@@ -31,6 +32,14 @@ import {
     //* Errors ==============================================
     if ( !validationResult.isValid ) {
       throw new VerifyIfContainRequestValues();
+    };
+
+    if ( nameClass.trim().length < 2 ) {
+      throw new EmptyFieldError();
+    };
+
+    if ( responsible.trim().length < 2 ) {
+      throw new EmptyFieldError();
     };
 
     if ( someClassFound ) {

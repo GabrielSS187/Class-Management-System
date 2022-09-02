@@ -21,6 +21,12 @@ export class VerifyIfExistClass extends CustomError {
   };
 };
 
+export class EmptyFieldError extends CustomError {
+  constructor(){
+    super("Preencha todos os campos!.", 406);
+  };
+};
+
 //* ======================================================
 //* GetAllsClassCase
 export class VerifyIfNotClassList extends CustomError {

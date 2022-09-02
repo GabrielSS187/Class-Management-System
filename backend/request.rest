@@ -1,13 +1,13 @@
 // Class =========================================================
 
 ### 
-GET http://localhost:3003/class/all
+GET http://localhost:3333/class/all
 
 ###
-GET http://localhost:3003/class/Classe 3
+GET http://localhost:3333/class/Classe 3
 
 ###
-POST http://localhost:3003/class/create
+POST http://localhost:3333/class/create
 Content-Type: application/json
 
 {
@@ -16,14 +16,14 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:3003/class/Classe 3
+DELETE http://localhost:3333/class/Classe 3
 
 // ================================================================
 
 // Students =======================================================
 
 ###
-POST http://localhost:3003/students/Classe 3
+POST http://localhost:3333/students/Classe 3
 Content-Type: application/json
 
 {
@@ -33,7 +33,7 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:3003/students/Classe 3/3feef23a-ce3d-409b-ad0e-1024316de7dc
+PUT http://localhost:3333/students/Classe 3/3feef23a-ce3d-409b-ad0e-1024316de7dc
 Content-Type: application/json
 
 {
@@ -43,6 +43,6 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:3003/students/Classe 3/346b28d1-921a-4a72-8bfd-6adb574fb046
+DELETE http://localhost:3333/students/Classe 3/3feef23a-ce3d-409b-ad0e-1024316de7dc
 
 // ================================================================

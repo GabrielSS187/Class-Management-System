@@ -18,7 +18,8 @@ import {
   VerifyIfContainRequestValues,
   VerifyIfNotExistClass,
   CheckThatClassDoesNotExceedLimit,
-  CheckIfParticipationIsValid
+  CheckIfParticipationIsValid,
+  EmptyFieldError,
  } from "../../errors/StudentsErrors";
 
  export class CreateStudentsCase {
@@ -47,6 +48,14 @@ import {
 
     if ( !validationResult.isValid ) {
       throw new VerifyIfContainRequestValues();
+    };
+
+    if ( firstName.trim().length < 2) {
+      throw new EmptyFieldError();
+    };
+
+    if ( lastName.trim().length < 2 ) {
+      throw new EmptyFieldError();
     };
     
     if ( !participation ) request.participation = 1;
