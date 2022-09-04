@@ -11,6 +11,10 @@ export const Container = styled.main`
     z-index: 2;
     transform: translate(-50%,-50%);
 
+    > div {
+        width: min(90%, 600px);
+     }
+
     display: flex;
     flex-direction: column;
     justify-content: center;

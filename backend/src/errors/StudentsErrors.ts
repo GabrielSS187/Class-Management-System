@@ -39,7 +39,7 @@ export class CheckIfParticipationIsValid extends CustomError {
 
 export class EmptyFieldError extends CustomError {
   constructor(){
-    super("Preencha todos os campos!.", 406);
+    super("Fill all fields with at least 2 letters!.", 406);
   };
 };
 

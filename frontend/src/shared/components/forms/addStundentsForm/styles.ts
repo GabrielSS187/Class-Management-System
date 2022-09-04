@@ -1,8 +1,19 @@
 import styled from "styled-components";
 
+export const Container = styled.main`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: center; */
+  > div {
+    height: 100%;
+  }
+`;
+
 export const Form = styled.form`
   height: 100%;
-
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,6 +32,7 @@ export const Input = styled.input`
   height: 40%;
   padding-left: 10px;
   width: min(100%, 250px);
+  font-size: 17px;
 
   border: none;
   border-radius: 3px;

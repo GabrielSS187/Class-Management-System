@@ -64,4 +64,10 @@ export type CreateContextType = {
     onChange: (e: ChangeEvent<HTMLInputElement | HTMLInputElement>) => void, 
     clearInputs: () => void;
   }; 
+  //* ======================================================
+  errors: {
+    formStudent: string,
+    formEditStudent: string,
+    formClass: string,
+  };
 };

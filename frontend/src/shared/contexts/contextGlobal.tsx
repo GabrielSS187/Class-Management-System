@@ -23,6 +23,12 @@ export const ContextGlobalComponent = ({ children }: ContextGlobalProps) => {
   useState<boolean>(false);
 
   const [ nameClass, setNameClass ] = useState<string>("");
+  const [ errors, setErrors ] =
+  useState<any>({
+    formStudent: "",
+    formEditStudent: "",
+    formClass: "",
+  });
 
   const [ classList, setClassList ] =
    useState<IOutputClass[] | []>([]);
@@ -36,7 +42,17 @@ export const ContextGlobalComponent = ({ children }: ContextGlobalProps) => {
   const [ foundStudent, setFoundStudent ] =
   useState<IOutputStudents | undefined>(undefined);
 
-  //* ==========================================================
+  useEffect(() => {
+    findClass(nameClass);
+   }, [nameClass]);
+
+  function resetErrors () {
+    setTimeout(() => {
+      setErrors("");
+    }, 5000);
+  };
+
+  //* Class ==========================================================
   const getNameClass = (e: ChangeEvent<HTMLSelectElement>) => {
     setNameClass(e.target.value);
   };
@@ -52,7 +68,7 @@ export const ContextGlobalComponent = ({ children }: ContextGlobalProps) => {
       setClassList(result?.data);
       setNameClass(result?.data[0].name_class);
     } catch (error: any) {
-      console.log(error?.message);
+      console.log(error?.response?.data);
     };
   };
 
@@ -63,9 +79,10 @@ export const ContextGlobalComponent = ({ children }: ContextGlobalProps) => {
       setStudentsList(data.studentsList);
       return data.studentsList;
     } catch (error: any) {
-      console.log(error?.message);
+      console.log(error?.response?.data);
     };
   };
+
 
   async function addClass (e: ChangeEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -75,7 +92,9 @@ export const ContextGlobalComponent = ({ children }: ContextGlobalProps) => {
       setIsActiveModalForm(false);
       await getAllClass();
     } catch (error: any) {
-      console.log(error?.message);
+      console.log(error?.response?.data);
+      setErrors({formClass: error?.response?.data});
+      resetErrors();
     };
   };
 
@@ -83,8 +102,9 @@ export const ContextGlobalComponent = ({ children }: ContextGlobalProps) => {
     try {
       await api.delete(`/class/${nameClass}`);
       await getAllClass();
+      if ( classList.length === 1 ) window.location.reload();
     } catch (error: any) {
-      console.log(error?.message);
+      console.log(error?.response?.data);
     } finally {
       setIsActiveModalForm(false);
     };
@@ -114,6 +134,10 @@ export const ContextGlobalComponent = ({ children }: ContextGlobalProps) => {
     ) {
     e.preventDefault();
     try {
+      if ( !foundClass ) {
+        throw new Error("Create a class before creating a student!.");
+      };
+
       const [,] = await Promise.all([
           await api.post(`/students/${nameClass}`, {
             ...formStudents.form,
@@ -123,7 +147,9 @@ export const ContextGlobalComponent = ({ children }: ContextGlobalProps) => {
         ]);
       formStudents.clearInputs();
     } catch (error: any) {
-      console.log(error?.message);
+      console.log(error?.response?.data);
+      setErrors({formStudent: error?.response?.data || error?.message});
+      resetErrors();
     };
   };
 
@@ -140,11 +166,14 @@ export const ContextGlobalComponent = ({ children }: ContextGlobalProps) => {
       e.preventDefault();
       try {
         await api.put(`/students/${nameClass}/${idStudent}`, 
-        formEditStudent.form)
+        formEditStudent.form);
+        formEditStudent.clearInputs();
         setIsActiveModalForm(false);
         await refreshStudentsList(nameClass);
     } catch (error: any) {
-        console.log(error?.message);
+      console.log(error?.response?.data);
+      setErrors({formEditStudent: error?.response?.data})
+      resetErrors();
     };
   };
 
@@ -152,9 +181,9 @@ export const ContextGlobalComponent = ({ children }: ContextGlobalProps) => {
     try {
       await api.delete(`/students/${nameClass}/${idStudent}`);
       setIsActiveModalForm(false);
-      await refreshStudentsList (nameClass);
+      await refreshStudentsList(nameClass);
     } catch (error: any) {
-      console.log(error?.message);
+      console.log(error?.response?.data);
     }
   };
 //* ===================================================================
@@ -180,7 +209,9 @@ export const ContextGlobalComponent = ({ children }: ContextGlobalProps) => {
     findClass,
     foundClass,
     nameClass,
-    deleteClass
+    deleteClass,
+    //* ======================
+    errors
   };
     
     return (

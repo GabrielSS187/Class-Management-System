@@ -5,10 +5,13 @@ interface MainProps {
 };
 
 export const Main = styled.main<MainProps>`
-  height: 100vh;
+  height: ${({ isActiveModalForm }: MainProps) => 
+    isActiveModalForm ? "100vh;" : "normal;"  
+  };
+  
   overflow: ${({ isActiveModalForm }: MainProps) => 
-  isActiveModalForm ? "hidden !important;" : "normal;"  
-};
+    isActiveModalForm ? "hidden !important;" : "normal;"  
+  };
 `;
 
 export const SubHeader = styled.div`
@@ -34,6 +37,8 @@ export const SubHeader = styled.div`
 `;
 
 export const Align = styled.div`
+  /* height: 100%; */
+  padding-top: 20px;
   display: flex;
   justify-content: center;
 
@@ -70,11 +75,11 @@ export const Align = styled.div`
 
 export const Informations = styled.main`
   width: 80%;
-  height: 65vh;
+  /* height: 65vh; */
   
   display: flex;
   justify-content: center;
-  padding-top: 50px;
+  /* padding-top: 50px; */
 
   > div {
     width: 50%;
@@ -90,7 +95,8 @@ export const Informations = styled.main`
   }
 
   @media (max-width: 770px) {
-    height: 25vh;
+    width: 100%;
+    /* height: 25vh; */
     flex-direction: column;
     align-items: center;
     gap: 50px;
@@ -130,4 +136,13 @@ export const OptionsButtonsContainer = styled.div`
       width: 75px;
   }
 }
+`;
+
+export const EmptyContainer = styled.div`
+  width: 100%;
+  height: 100%;
+
+  @media (max-width: 770px) {
+    text-align: center;
+  }
 `;

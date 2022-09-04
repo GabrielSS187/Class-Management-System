@@ -6,8 +6,8 @@ import { GlobalStyles } from "./shared/styles/GlobalStyles";
 function App() {
   return (
     <ContextGlobalComponent>
-     <Routers />
-     <GlobalStyles />
+      <Routers />
+      <GlobalStyles />
     </ContextGlobalComponent>
   );
 };

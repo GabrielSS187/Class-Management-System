@@ -1,5 +1,7 @@
 import { Container, ButtonClose } from "./styles";
 
+import { Animated } from "react-animated-css";
+
 import { X } from "phosphor-react";
 
 interface PopupModalProps {
@@ -18,7 +20,9 @@ export const PopupModal = ({ children, setActiveModalForm }: PopupModalProps) =>
           <X size={32} />
         </button>
       </ButtonClose>
-      {children}
+      <Animated animationIn="bounceInLeft" animationOut="fadeOut" isVisible={true}>
+        {children}
+      </Animated>
     </Container>
   );
 };

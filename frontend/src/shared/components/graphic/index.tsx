@@ -4,11 +4,7 @@ import { ContextGlobal } from "../../contexts/contextGlobal";
 import { Chart } from "react-google-charts";
 
 export const Graphic = () => {
-  const { studentsList, findClass, nameClass } = useContext(ContextGlobal);
-
-  useEffect(() => {
-    findClass(nameClass)
-  }, [nameClass]);
+  const { studentsList } = useContext(ContextGlobal);
 
   //* Adaptando o array para o grafico.
   const adapterChatGraphic = (array: any) => {
@@ -27,11 +23,11 @@ export const Graphic = () => {
   
   return ( 
         <Chart
-        chartType="PieChart"
-        data={array}
-        options={options}
-        width={"100%"}
-        height={"400px"}
-      />
+          chartType="PieChart"
+          data={array}
+          options={options}
+          width={"100%"}
+          height={"400px"}
+        />
   );
 };

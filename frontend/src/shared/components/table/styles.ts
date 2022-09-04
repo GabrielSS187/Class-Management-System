@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: min(90%, 65%);
+  width: min(90%, 80%);
   height: 100%;
 
   .fl-table {
@@ -125,7 +125,7 @@ export const Container = styled.div`
 
   @media (max-width: 630px) {
     .fl-table td, .fl-table th {
-      width: 100%;
+      width: 90px;
     }
   }
 `;

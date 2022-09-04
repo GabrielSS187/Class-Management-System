@@ -1,9 +1,11 @@
 import { ChangeEvent, useContext } from "react";
+
 import { ContextGlobal } from "../../../contexts/contextGlobal";
 
 import { Container, FormContainer, ButtonsContainer } from "./styles";
 
 import { Trash } from "phosphor-react";
+import { ContainerErrors } from "../../errors";
 
 export const EditStudentForm = () => {
   const { 
@@ -12,11 +14,17 @@ export const EditStudentForm = () => {
     editStudent, 
     nameClass, 
     deleteStudent,
+    errors,
    } = useContext(ContextGlobal);
 
   return (
     <Container>
       <h1>Edit or delete the student</h1>
+      { errors &&
+        <ContainerErrors>
+          <p>{errors.formEditStudent}</p>
+        </ContainerErrors>
+      }
       <FormContainer onSubmit={
            (e: ChangeEvent<HTMLFormElement>) => 
            editStudent(e, nameClass, foundStudent?.id_student!)

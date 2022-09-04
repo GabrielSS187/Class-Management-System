@@ -18,8 +18,10 @@ import {
   SubHeader, 
   Informations, 
   Align, 
-  OptionsButtonsContainer
+  OptionsButtonsContainer,
+  EmptyContainer,
 } from "./styles";
+import { Footer } from "../../shared/components/footer";
 
 export const Home = () => {
   const { 
@@ -27,7 +29,8 @@ export const Home = () => {
     setIsActiveModalForm, 
     nameClass,
     foundClass,
-    searchStudent
+    searchStudent,
+    studentsList,
   } = useContext(ContextGlobal);
 
   const [ selectedModalForm, setSelectedModalForm ] = 
@@ -62,49 +65,91 @@ export const Home = () => {
 
   return (
     <Main isActiveModalForm={isActiveModalForm} >
-      <Header />
-      <SubHeader>
-        <OptionsButtonsContainer>
-          <button 
-            onClick={activeModalAddClass} 
-            title="Adicionar uma nova classe">
-            <Plus size={32} />
-          </button>
-          <SelectedClass />
-        </OptionsButtonsContainer>
-        <h1>DATA</h1>
-        <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, debitis.</h4>
-      </SubHeader>
-
-      {/* Modal Forms */}
-      { isActiveModalForm && 
-        <PopupModal setActiveModalForm={setIsActiveModalForm}>
-          { 
-            switchModals()
-          }
-        </PopupModal>
-      }
-
-      <Align>
-        <Informations>
-          <div className="table">
-            <div className="info-class">
-              <p>Class: <strong>{nameClass}</strong></p>
+        <Header />
+        <SubHeader>
+            <OptionsButtonsContainer>
               <button 
-                onClick={activeModalDeleteClass}
-                title="Excluir turma"
-              ><Trash size={17} /></button>
-              <p>Responsible: <strong>{foundClass?.responsible}</strong></p>
-            </div>
-            <Table 
-              activeModalStudentsForm={activeModalStudentsForm} 
-            />
-          </div>
-          <div className="graphic">
-            <Graphic />
-          </div>
-        </Informations>
-      </Align>
+                onClick={activeModalAddClass} 
+                title="Adicionar uma nova classe">
+                <Plus size={32} />
+              </button>
+              <SelectedClass />
+            </OptionsButtonsContainer>
+            <h1>DATA</h1>
+            <h4>
+              { foundClass ? 
+                  (<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, debitis.</p>)
+                :
+                (
+                    <>
+                      <p>"You don't have any classes yet!. Create one to get started."</p>
+                      <br />
+                      <Footer />
+                    </>
+                  )
+              }
+            </h4>
+        </SubHeader>
+
+        {/* Modal Forms */}
+        { isActiveModalForm && 
+          <PopupModal setActiveModalForm={setIsActiveModalForm}>
+            { 
+              switchModals()
+            }
+          </PopupModal>
+        }
+
+        <Align>
+            <Informations>
+              <div className="table">
+                  {
+                    foundClass ?
+                    (
+                      <div className="info-class">
+                        <p>Class: <strong>{nameClass}</strong></p>
+                        <button 
+                          onClick={activeModalDeleteClass}
+                          title="Excluir turma"
+                        ><Trash size={17} /></button>
+                        <p>Responsible: <strong>{foundClass?.responsible}</strong></p>
+                      </div>
+                    )
+                    :
+                    (
+                      null
+                    )
+                  }
+              
+                  {
+                    studentsList.length ?
+                    (
+                      <Table 
+                        activeModalStudentsForm={activeModalStudentsForm} 
+                      />
+                    )
+                    :
+                    (
+                      <EmptyContainer>
+                        {foundClass && <p><strong>Create a student for this class!.</strong></p>}
+                      </EmptyContainer>
+                    )
+                  }
+              </div>
+
+                {
+                    studentsList.length ? 
+                    (
+                      <div className="graphic">
+                        <Graphic />
+                      </div>
+                    )
+                    : 
+                    (<EmptyContainer/>)
+                }
+            </Informations>
+        </Align>
+        { foundClass && <Footer /> }
     </Main>
   );
 };

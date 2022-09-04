@@ -16,7 +16,7 @@ import {
   VerifyIfNotExistClass,
   VerifyIfNotExistStudent,
   VerifyIfContainValuesInInput,
-  CheckIfParticipationIsValid
+  CheckIfParticipationIsValid,
  } from "../../errors/StudentsErrors";
 
 
@@ -61,12 +61,14 @@ import {
       if ( participation! < 0 || participation! > 100 ) {
         throw new CheckIfParticipationIsValid();
       };
+      
+      if ( !participation ) request.participation = 1;
 
-      if ( !firstName ) {
+      if ( !firstName || firstName!.trim().length < 2 ) {
         request.firstName = classAndStudent.studentFound.firstName
       };
 
-      if ( !lastName ) {
+      if ( !lastName || firstName!.trim().length < 2 ) {
         request.lastName = classAndStudent.studentFound.lastName
       };
 

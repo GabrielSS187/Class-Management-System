@@ -4,7 +4,7 @@
 GET http://localhost:3333/class/all
 
 ###
-GET http://localhost:3333/class/Classe 3
+GET http://localhost:3333/class/Classe 1
 
 ###
 POST http://localhost:3333/class/create
@@ -16,7 +16,7 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:3333/class/Classe 3
+DELETE http://localhost:3333/class/Classe 1
 
 // ================================================================
 
