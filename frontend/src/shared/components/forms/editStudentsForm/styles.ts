@@ -35,7 +35,7 @@ export const FormContainer = styled.form`
   }
 
   > section input {
-    height: 5vh;
+    padding: 15px;
     width: max(70%, 20vw);
     border: none;
     border-radius: 3px;
@@ -64,7 +64,7 @@ export const ButtonsContainer = styled.div`
 
    button {
     width: 70px;
-    height: 5vh;
+    height: 40px;
     border: 2px solid #fff;
     border-radius: 3px;
     background: none;

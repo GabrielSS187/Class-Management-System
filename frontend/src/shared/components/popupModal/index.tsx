@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 import { Container, ButtonClose } from "./styles";
 
 import { Animated } from "react-animated-css";
@@ -12,7 +14,9 @@ interface PopupModalProps {
 };
 
 export const PopupModal = ({ children, setActiveModalForm }: PopupModalProps) => {
-  vibrateCellPhone();
+  useEffect(() => {
+    vibrateCellPhone();
+  }, []);
 
   return (
     <Container>

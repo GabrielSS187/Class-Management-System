@@ -29,21 +29,21 @@ export const Form = styled.form`
 `;
 
 export const Input = styled.input`
-  height: 40%;
+  padding: 25px;
   padding-left: 10px;
   width: min(100%, 250px);
-  font-size: 17px;
+  font-size: 18px;
 
   border: none;
   border-radius: 3px;
 
   @media (max-width: 550px) {
-   height: 15%;
+   padding: 10px;
   }
 `;
 
 export const Button = styled.button`
-  height: 40%;
+  padding: 25px;
   width: min(20%, 130px);
   font-size: clamp(.750rem, 3vw, 1rem);
 
@@ -54,6 +54,6 @@ export const Button = styled.button`
   cursor: pointer;
 
   @media (max-width: 550px) {
-    height: 15%;
+    padding: 15px;
   }
 `;
