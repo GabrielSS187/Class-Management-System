@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "16.15.0",
+    "npm": "8.12.1"
+ },
   "scripts": {
     "start": "tsc && node ./dist/index.js",
     "dev": "tsnd --transpile-only --ignore-watch node_modules ./src/index.ts",
