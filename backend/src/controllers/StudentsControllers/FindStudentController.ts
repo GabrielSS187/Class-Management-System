@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 
 import { 
   FindStudentRepository
- } from "../../repositories/Students-repositories/find-student-repository";
+ } from "../../repositories/Students-repositories/Find-student-repository";
 
  import {
    FindStudentCase
