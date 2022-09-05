@@ -23,6 +23,7 @@ export const ContextGlobalComponent = ({ children }: ContextGlobalProps) => {
   useState<boolean>(false);
 
   const [ nameClass, setNameClass ] = useState<string>("");
+
   const [ errors, setErrors ] =
   useState<any>({
     formStudent: "",
@@ -45,6 +46,8 @@ export const ContextGlobalComponent = ({ children }: ContextGlobalProps) => {
   useEffect(() => {
     findClass(nameClass);
    }, [nameClass]);
+
+   //* ==============================================================
 
   function resetErrors () {
     setTimeout(() => {
@@ -82,7 +85,6 @@ export const ContextGlobalComponent = ({ children }: ContextGlobalProps) => {
       console.log(error?.response?.data);
     };
   };
-
 
   async function addClass (e: ChangeEvent<HTMLFormElement>) {
     e.preventDefault();

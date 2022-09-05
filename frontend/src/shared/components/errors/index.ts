@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ContainerErrors = styled.div`
-  padding: 20px;
+  padding-top: 10px;
   > p {
     font-size: clamp(.900rem, 2vw, 1.5rem);
     text-align: center;
