@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "axios": "^0.27.2",
+    "dotenv": "^16.0.2",
     "framer-motion": "^6.5.1",
     "lodash-typescript": "^0.1.2",
     "passive-events-support": "^1.0.33",
