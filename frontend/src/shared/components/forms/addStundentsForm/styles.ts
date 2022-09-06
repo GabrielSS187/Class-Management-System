@@ -29,7 +29,7 @@ export const Form = styled.form`
 `;
 
 export const Input = styled.input`
-  padding: 25px;
+  padding: 15px;
   padding-left: 10px;
   width: min(100%, 250px);
   font-size: 18px;
@@ -43,7 +43,7 @@ export const Input = styled.input`
 `;
 
 export const Button = styled.button`
-  padding: 25px;
+  padding: 15px;
   width: min(20%, 130px);
   font-size: clamp(.750rem, 3vw, 1rem);
 

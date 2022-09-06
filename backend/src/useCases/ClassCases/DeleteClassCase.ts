@@ -12,6 +12,7 @@ export class DeleteClassCase {
   public async deleteClass ({ nameClass }: INameClassRequest) {
     const foundClass = await
     this.deleteClassModel.findClass({nameClass});
+    console.log(foundClass)
 
     if ( !foundClass ) throw new VerifyIfNotClass();
 

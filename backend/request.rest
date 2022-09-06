@@ -16,7 +16,7 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:3333/class/Classe 1
+DELETE http://localhost:3333/class/Ramos
 
 // ================================================================
 

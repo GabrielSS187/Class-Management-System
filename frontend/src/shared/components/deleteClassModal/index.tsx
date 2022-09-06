@@ -5,7 +5,7 @@ import { Container } from "./styles";
 
 interface DeleteClassModalProps {
   nameClass: string;
-}
+};
 
 export const DeleteClassModal = ({nameClass}: DeleteClassModalProps) => {
   const {

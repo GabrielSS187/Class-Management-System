@@ -5,7 +5,7 @@ interface Props {
 };
 
 export const HeaderContainer = styled.header<Props>`
-  height: ${(({errors}: Props) => errors ? "200px" : "155px")};
+  height: ${(({errors}: Props) => errors ? "160px" : "120px")};
   padding-top: ${(({errors}: Props) => errors ? "20px" :"normal")};
   padding-bottom: ${(({errors}: Props) => errors ? "20px" : "normal")};
   width: 100%;

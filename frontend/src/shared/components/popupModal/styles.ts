@@ -4,6 +4,11 @@ export const Container = styled.main`
     width: 100%;
     height: 100vh;
     background: rgba(0, 0, 0, 0.4);
+
+    @media (max-height: 800px) {
+        height: 135vh;
+        padding-top: 10%;
+    };
     
     position: absolute;
     left: 50%;
