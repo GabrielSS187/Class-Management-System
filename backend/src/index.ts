@@ -10,7 +10,7 @@ import { CustomError } from "./errors/CustomError";
 app.use("/class", classRoutes);
 app.use("/students", studentsRoutes);
 
-//* =========================================================
+//* ============================================================
 app.use((error: any, req: Request, res: Response, next: NextFunction) => {
     return error instanceof CustomError 
   ?

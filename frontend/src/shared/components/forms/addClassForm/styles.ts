@@ -43,7 +43,7 @@ export const FormContainer = styled.form`
   }
 
   > div input {
-    height: 5vh;
+    padding: 15px;
     width: max(70%, 20vw);
     border: none;
     border-radius: 3px;
