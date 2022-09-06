@@ -5,7 +5,7 @@ export const Container = styled.main`
     height: 100vh;
     background: rgba(0, 0, 0, 0.4);
 
-    @media (max-height: 800px) {
+    @media (max-height: 700px) {
         height: 135vh;
         padding-top: 10%;
     };
