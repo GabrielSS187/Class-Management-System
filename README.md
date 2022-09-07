@@ -1,5 +1,104 @@
 # Class-Management-System
+[![NPM](https://img.shields.io/npm/l/react)](https://github.com/GabrielSS187/Class-Management-System/blob/main/LICENSE) 
 
-## 💻💻 Projeto em desenvolvimento 💻💻
+<p align="center">
+    <img src="frontend/public/img/person-icon.png" height="300px" />
+</p>
 
-## Link da aplicação em produção: https://class-management-system.surge.sh/
+# Sobre o projeto
+
+### Link: [Class-Management-System](https://class-management-system.surge.sh/)
+
+``Class-Management-System`` é uma aplicação full stack web construida para gerenciar turmas escolares.
+
+A aplicação consiste em criar classes, apagar classes, criar alunos, editar alunos, apaga alunos,
+e ver a presença atual dos alunos através de um gráfico que mostrar as porcetangens de presença de
+cada aluno que estar na escolhida classe.
+
+
+## Layout Desktop. Com demostração
+https://user-images.githubusercontent.com/86306877/188762796-5e3caf58-7d3a-4f7d-ace9-fdfd89710946.mp4
+
+## Layout Mobile. Com demostração
+https://user-images.githubusercontent.com/86306877/188762971-b224f732-2426-4915-899d-142626aa093f.mp4
+
+
+## Modelo Conceitual / Estrutura de Dados
+![Captura de Tela (188)](https://user-images.githubusercontent.com/86306877/188763110-89b0da92-f6af-4ee4-acb4-b6ecd3f6bfe2.png)
+
+
+## Competências
+- Princípios SOLID
+- Responsividade
+- Apis REST
+- Testes Unitários / TDD
+- Boas Práticas
+
+# Tecnologias utilizadas
+
+## Back end
+- Node Js
+- Typescript
+- Express
+- Knex
+- Cors
+- MySql
+- Jest
+
+## Front end
+- HTML / CSS / JS / TypeScript
+- ReactJS/TS
+- Vite
+- Framer-Motion
+- Styled-Components
+- react-router-dom
+- react-google-charts
+- react-query
+- Axios
+
+## Implantação em produção
+
+- Back end: Heroku
+- Front end web: Surge
+- Banco de dados:  MySQL
+
+# Como executar o projeto
+
+## Back end
+
+```bash
+# clonar repositório
+https://github.com/GabrielSS187/Class-Management-System.git
+
+# entrar na pasta do projeto back end
+cd backend
+
+# instalar dependências
+npm install
+
+# executar o projeto
+npm run dev
+```
+
+## Front end web
+Pré-requisitos: npm / yarn
+
+```bash
+# clonar repositório
+https://github.com/GabrielSS187/Class-Management-System.git
+
+# entrar na pasta do projeto front end web
+cd frontend
+
+# instalar dependências
+npm install
+
+# executar o projeto
+npm run dev
+```
+
+# Autor
+
+Gabriel Silva Souza
+
+https://www.linkedin.com/in/gabriel-silva-souza-developer
