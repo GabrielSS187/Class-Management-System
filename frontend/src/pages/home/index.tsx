@@ -64,8 +64,8 @@ export const Home = () => {
 
   return (
     <Main isActiveModalForm={isActiveModalForm} >
-        <Header />
         { activeAnimation && <BirthdayAnimation /> }
+        <Header />
         <SubHeader>
             <OptionsButtonsContainer>
                   { !loadSelect && 

@@ -20,17 +20,17 @@ export const PopupModal = ({ children, setActiveModalForm }: PopupModalProps) =>
 
   return (
     <Container>
-      <ButtonClose>
-        <button 
-          onClick={() => setActiveModalForm(false)}
-          title="Fechar"
-        >
-          <X size={32} />
-        </button>
-      </ButtonClose>
-      <Animated animationIn="bounceInLeft" animationOut="fadeOut" isVisible={true}>
-        { children}
-      </Animated>
+        <ButtonClose>
+          <button 
+            onClick={() => setActiveModalForm(false)}
+            title="Fechar"
+          >
+            <X size={32} />
+          </button>
+        </ButtonClose>
+        <Animated animationIn="bounceInLeft" animationOut="fadeOut" isVisible={true}>
+            { children }
+        </Animated>
     </Container>
   );
 };
