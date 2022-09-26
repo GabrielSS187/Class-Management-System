@@ -6,11 +6,24 @@ import { ArrowSquareLeft, ArrowSquareUp } from "phosphor-react";
 import { ContainerMessageError } from "./styles";
 
 export const SelectedClass = () => {
-  const { classList, getAllClass, getNameClass } = useContext(ContextGlobal);
+  const { 
+    classList, 
+    getAllClass, 
+    getNameClass,
+    isLoad,
+  } = useContext(ContextGlobal);
 
   useEffect(() => {
     getAllClass();
   }, []);
+
+  if ( isLoad ) {
+    return(
+      <div style={{display: "flex", alignItems: "center"}}>
+         <p>Carregando...</p>
+      </div>
+    );
+  };
 
   return (
     <>

@@ -21,6 +21,7 @@ createContext<CreateContextType>({} as CreateContextType);
 export const ContextGlobalComponent = ({ children }: ContextGlobalProps) => {
   const [ isActiveModalForm, setIsActiveModalForm ] = 
   useState<boolean>(false);
+  const [ isLoad, setIsLoad ] = useState(false);
 
   const [ nameClass, setNameClass ] = useState<string>("");
 
@@ -67,22 +68,30 @@ export const ContextGlobalComponent = ({ children }: ContextGlobalProps) => {
 
   async function getAllClass () {
     try {
+      setIsLoad(true);
       const result = await api.get("/class/all");
       setClassList(result?.data);
       setNameClass(result?.data[0].name_class);
+      setIsLoad(false);
     } catch (error: any) {
       console.log(error?.response?.data);
+    } finally {
+      setIsLoad(false)
     };
   };
 
   async function findClass (nameClass: string) {
     try {
+      setIsLoad(true)
       const { data } = await api.get(`/class/${nameClass}`);
       setFoundClass(data);
       setStudentsList(data.studentsList);
+      setIsLoad(false)
       return data.studentsList;
     } catch (error: any) {
       console.log(error?.response?.data);
+    } finally {
+      setIsLoad(false);
     };
   };
 
@@ -213,6 +222,7 @@ export const ContextGlobalComponent = ({ children }: ContextGlobalProps) => {
     nameClass,
     deleteClass,
     //* ======================
+    isLoad,
     errors
   };
     

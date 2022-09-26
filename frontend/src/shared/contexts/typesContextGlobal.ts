@@ -66,6 +66,7 @@ export type CreateContextType = {
     clearInputs: () => void;
   }; 
   //* ======================================================
+  isLoad: boolean;
   errors: {
     formStudent: string,
     formEditStudent: string,

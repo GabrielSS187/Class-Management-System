@@ -3,23 +3,19 @@ import { useContext } from "react";
 import { ContextGlobal } from "../../shared/contexts/contextGlobal";
 
 import { Header } from "../../shared/components/header";
-import { Table } from "../../shared/components/table";
-import { Graphic } from "../../shared/components/graphic";
+import { Informations } from "../../shared/components/informations";
 import { PopupModal } from "../../shared/components/popupModal";
 import { AddClassForm } from "../../shared/components/forms/addClassForm";
 import { EditStudentForm } from "../../shared/components/forms/editStudentsForm";
 import { SelectedClass } from "../../shared/components/selectedClass";
 import { DeleteClassModal } from "../../shared/components/deleteClassModal";
 
-import { Plus, Trash } from "phosphor-react";
+import { Plus } from "phosphor-react";
 
 import { 
   Main,
   SubHeader, 
-  Informations, 
-  Align, 
   OptionsButtonsContainer,
-  EmptyContainer,
 } from "./styles";
 import { Footer } from "../../shared/components/footer";
 
@@ -30,7 +26,6 @@ export const Home = () => {
     nameClass,
     foundClass,
     searchStudent,
-    studentsList,
   } = useContext(ContextGlobal);
 
   const [ selectedModalForm, setSelectedModalForm ] = 
@@ -100,55 +95,11 @@ export const Home = () => {
           </PopupModal>
         }
 
-        <Align>
-            <Informations>
-              <div className="table">
-                  {
-                    foundClass ?
-                    (
-                      <div className="info-class">
-                        <p>Class: <strong>{nameClass}</strong></p>
-                        <button 
-                          onClick={activeModalDeleteClass}
-                          title="Excluir turma"
-                        ><Trash size={17} /></button>
-                        <p>Responsible: <strong>{foundClass?.responsible}</strong></p>
-                      </div>
-                    )
-                    :
-                    (
-                      null
-                    )
-                  }
-              
-                  {
-                    studentsList.length ?
-                    (
-                      <Table 
-                        activeModalStudentsForm={activeModalStudentsForm} 
-                      />
-                    )
-                    :
-                    (
-                      <EmptyContainer>
-                        {foundClass && <p><strong>Create a student for this class!.</strong></p>}
-                      </EmptyContainer>
-                    )
-                  }
-              </div>
+        <Informations 
+          activeModalStudentsForm={activeModalStudentsForm}
+          activeModalDeleteClass={activeModalDeleteClass}
+        />
 
-                {
-                    studentsList.length ? 
-                    (
-                      <div className="graphic">
-                        <Graphic />
-                      </div>
-                    )
-                    : 
-                    (<EmptyContainer/>)
-                }
-            </Informations>
-        </Align>
         { foundClass && <Footer /> }
     </Main>
   );
