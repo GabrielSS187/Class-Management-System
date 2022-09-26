@@ -17,15 +17,13 @@ cada aluno que estar na escolhida classe.
 
 
 ## Layout Desktop. Com demostração
-https://user-images.githubusercontent.com/86306877/188762796-5e3caf58-7d3a-4f7d-ace9-fdfd89710946.mp4
+https://user-images.githubusercontent.com/86306877/192336856-a1b37d95-a2a9-4cb6-a9bc-d3b3c4b13be1.mp4
 
-## Layout Mobile. Com demostração
-https://user-images.githubusercontent.com/86306877/188762971-b224f732-2426-4915-899d-142626aa093f.mp4
-
+## Layout Mobile e Tablet. Com demostração
+https://user-images.githubusercontent.com/86306877/192336905-4bba055e-6c6e-4f31-a345-8f723246514b.mp4
 
 ## Modelo Conceitual / Estrutura de Dados
 ![Captura de Tela (188)](https://user-images.githubusercontent.com/86306877/188763110-89b0da92-f6af-4ee4-acb4-b6ecd3f6bfe2.png)
-
 
 ## Competências
 - Princípios SOLID
