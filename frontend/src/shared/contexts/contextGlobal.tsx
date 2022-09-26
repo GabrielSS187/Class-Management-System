@@ -21,7 +21,9 @@ createContext<CreateContextType>({} as CreateContextType);
 export const ContextGlobalComponent = ({ children }: ContextGlobalProps) => {
   const [ isActiveModalForm, setIsActiveModalForm ] = 
   useState<boolean>(false);
-  const [ isLoad, setIsLoad ] = useState(false);
+  const [ isLoad, setIsLoad ] = useState<boolean>(false);
+  const [ loadSelect, setLoadSelect ] = useState<boolean>(false);
+  const [ activeAnimation, setActiveAnimation ] = useState<boolean>(false);
 
   const [ nameClass, setNameClass ] = useState<string>("");
 
@@ -68,15 +70,15 @@ export const ContextGlobalComponent = ({ children }: ContextGlobalProps) => {
 
   async function getAllClass () {
     try {
-      setIsLoad(true);
+      setLoadSelect(true);
       const result = await api.get("/class/all");
       setClassList(result?.data);
       setNameClass(result?.data[0].name_class);
-      setIsLoad(false);
+      setLoadSelect(false);
     } catch (error: any) {
       console.log(error?.response?.data);
     } finally {
-      setIsLoad(false)
+      setLoadSelect(false);
     };
   };
 
@@ -101,6 +103,7 @@ export const ContextGlobalComponent = ({ children }: ContextGlobalProps) => {
       await api.post("/class/create", formClass.form);
       formClass.clearInputs();
       setIsActiveModalForm(false);
+      setActiveAnimation(true);
       await getAllClass();
     } catch (error: any) {
       console.log(error?.response?.data);
@@ -157,6 +160,7 @@ export const ContextGlobalComponent = ({ children }: ContextGlobalProps) => {
           refreshStudentsList(nameClass)
         ]);
       formStudents.clearInputs();
+      setActiveAnimation(true);
     } catch (error: any) {
       console.log(error?.response?.data);
       setErrors({formStudent: error?.response?.data || error?.message});
@@ -223,6 +227,9 @@ export const ContextGlobalComponent = ({ children }: ContextGlobalProps) => {
     deleteClass,
     //* ======================
     isLoad,
+    loadSelect,
+    activeAnimation,
+    setActiveAnimation,
     errors
   };
     

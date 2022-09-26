@@ -67,6 +67,9 @@ export type CreateContextType = {
   }; 
   //* ======================================================
   isLoad: boolean;
+  loadSelect: boolean;
+  activeAnimation: boolean;
+  setActiveAnimation: (input: boolean) => void;
   errors: {
     formStudent: string,
     formEditStudent: string,

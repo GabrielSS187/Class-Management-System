@@ -10,14 +10,14 @@ export const SelectedClass = () => {
     classList, 
     getAllClass, 
     getNameClass,
-    isLoad,
+    loadSelect,
   } = useContext(ContextGlobal);
 
   useEffect(() => {
     getAllClass();
   }, []);
 
-  if ( isLoad ) {
+  if ( loadSelect ) {
     return(
       <div style={{display: "flex", alignItems: "center"}}>
          <p>Carregando...</p>

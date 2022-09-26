@@ -10,6 +10,8 @@ import { EditStudentForm } from "../../shared/components/forms/editStudentsForm"
 import { SelectedClass } from "../../shared/components/selectedClass";
 import { DeleteClassModal } from "../../shared/components/deleteClassModal";
 
+import { BirthdayAnimation } from "../../shared/components/birthdayAnimation";
+
 import { Plus } from "phosphor-react";
 
 import { 
@@ -26,6 +28,8 @@ export const Home = () => {
     nameClass,
     foundClass,
     searchStudent,
+    loadSelect,
+    activeAnimation
   } = useContext(ContextGlobal);
 
   const [ selectedModalForm, setSelectedModalForm ] = 
@@ -61,14 +65,18 @@ export const Home = () => {
   return (
     <Main isActiveModalForm={isActiveModalForm} >
         <Header />
+        { activeAnimation && <BirthdayAnimation /> }
         <SubHeader>
             <OptionsButtonsContainer>
-              <button 
-                onClick={activeModalAddClass} 
-                title="Adicionar uma nova classe">
-                <Plus size={32} />
-              </button>
-              <SelectedClass />
+                  { !loadSelect && 
+                      (<button 
+                        onClick={activeModalAddClass} 
+                        title="Adicionar uma nova classe">
+                        <Plus size={32} />
+                      </button>
+                      )
+                  }
+                  <SelectedClass />
             </OptionsButtonsContainer>
             <h1>DATA</h1>
             <h4>
