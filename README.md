@@ -53,6 +53,7 @@ https://user-images.githubusercontent.com/86306877/188762971-b224f732-2426-4915-
 - Styled-Components
 - react-router-dom
 - react-google-charts
+- react-lottie
 - react-query
 - Axios
 
