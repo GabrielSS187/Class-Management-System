@@ -36,6 +36,12 @@ export const Container = styled.div`
       justify-content: space-between;
     }
   }
+
+  @media (max-width: 400px) {
+    .info-class {
+      padding: 0 25px 0 31px;
+    }
+  }
 `;
 
 export const Info = styled.main`
