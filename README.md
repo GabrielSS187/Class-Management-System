@@ -66,7 +66,7 @@ https://user-images.githubusercontent.com/86306877/192336905-4bba055e-6c6e-4f31-
 ## Front end / Back-end
 Pré-requisitos: npm / yarn, MySql
 
-### Antes de tudo crie as tabelas necessárias no seu banco de dados MySql no arquivo "queries.sql"
+### Antes de tudo crie as tabelas necessárias no seu banco de dados MySql no arquivo "queries.sql" na pasta "backend"
 
 ```bash
 # clonar repositório
