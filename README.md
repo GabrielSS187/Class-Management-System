@@ -63,24 +63,11 @@ https://user-images.githubusercontent.com/86306877/192336905-4bba055e-6c6e-4f31-
 
 # Como executar o projeto
 
-## Back end
+## Front end / Back-end
+Pré-requisitos: npm / yarn, MySql
 
-```bash
-# clonar repositório
-git clone https://github.com/GabrielSS187/Class-Management-System.git
-
-# entrar na pasta do projeto back end
-cd backend
-
-# instalar dependências
-npm install
-
-# executar o projeto
-npm run dev
-```
-
-## Front end web
-Pré-requisitos: npm / yarn
+### Antes de tudo crie as tabelas necessárias no seu banco de dados MySql
+## No arquivo "queries.sql"
 
 ```bash
 # clonar repositório
@@ -88,6 +75,18 @@ git clone https://github.com/GabrielSS187/Class-Management-System.git
 
 # entrar na pasta do projeto front end web
 cd frontend
+
+# instalar dependências
+npm install
+
+# executar o projeto
+npm run dev
+
+# voltar para a pasta pai
+cd ..
+
+# entrar na pasta do projeto back end
+cd backend
 
 # instalar dependências
 npm install
