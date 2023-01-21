@@ -67,7 +67,7 @@ https://user-images.githubusercontent.com/86306877/192336905-4bba055e-6c6e-4f31-
 
 ```bash
 # clonar repositório
-https://github.com/GabrielSS187/Class-Management-System.git
+git clone https://github.com/GabrielSS187/Class-Management-System.git
 
 # entrar na pasta do projeto back end
 cd backend
@@ -84,7 +84,7 @@ Pré-requisitos: npm / yarn
 
 ```bash
 # clonar repositório
-https://github.com/GabrielSS187/Class-Management-System.git
+git clone https://github.com/GabrielSS187/Class-Management-System.git
 
 # entrar na pasta do projeto front end web
 cd frontend
