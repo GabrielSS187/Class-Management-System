@@ -17,7 +17,7 @@ cada aluno que estar na escolhida classe.
 
 
 ## Layout Desktop. Com demostração
-https://user-images.githubusercontent.com/86306877/192336856-a1b37d95-a2a9-4cb6-a9bc-d3b3c4b13be1.mp4
+git clone https://user-images.githubusercontent.com/86306877/192336856-a1b37d95-a2a9-4cb6-a9bc-d3b3c4b13be1.mp4
 
 ## Layout Mobile e Tablet. Com demostração
 https://user-images.githubusercontent.com/86306877/192336905-4bba055e-6c6e-4f31-a345-8f723246514b.mp4
